@@ -6,42 +6,12 @@ body{
     scroll-behavior: smooth;
 }
 /*Header CSS*/
-.header-container{
-  background-color: black;
-  width:100%;
-  height:auto;
-  color:whitesmoke;
-  padding-top:10px;
-  padding-left:10px;
-  padding-right:10px;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.2s;
-  border-bottom: 1px solid whitesmoke;
+header{
   z-index:1000;
 }
-#categories-list{
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:25px;
-  font-size: 20px;
-}
-#categories-list li:hover{
-  opacity:0.8;
-}
-.header-container ul li a{
-  text-decoration: none;
-  color: whitesmoke;
-}
-.header-container h3 a{
-  text-decoration: none;
-  color: whitesmoke;
-}
-.header-container h3 a:hover{
-  opacity:0.8;
+.offcanvas-body a{
+  color:whitesmoke;
+  font-size: 18px;
 }
 .lineUp {
   animation: 2s anim-lineUp ease-out 1;
@@ -83,10 +53,10 @@ animation: 2s anim-lineRight ease-out 1;
   transform: translateX(0%);
 }
 }
-header{
+/* header{
   position: sticky;
   top:0px;
-}
+} */
 
 /*Footer CSS */
 .footer-container{

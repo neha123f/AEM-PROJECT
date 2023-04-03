@@ -36,7 +36,7 @@
 	background-color: red;
 	cursor: default;
 } */
-#calendar {
+/* #calendar {
 	font-family: Arial, sans-serif;
 	width: 300px;
 	margin: 0 auto;
@@ -69,5 +69,58 @@
   .calendar-date.today {
 	background-color: #4CAF50;
 	color: #fff;
+  } */
+
+  *{
+	padding: 0;
+	margin:0;
   }
+
+  .admin-container{
+	display: flex;
+  }
+  .sidebar{
+  height: 100vh;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.733);   
+  transition: all 0.5s ease;
+  }
+  .sidebar.active{
+	width: 60px;
+	overflow: hidden;
+  }
+  .logo-container{
+	text-align: center;
+	padding-left: 10px;
+	padding-top: 10px;
+  }
+  .logo-container a{
+	text-decoration: none;
+	color:whitesmoke
+  }
+  .logo-container a .company-name{
+	font-size: 20px;
+	padding-left:5px;
+  }
+  .sidebar.active .logo-container a .company-name{
+	display: none;
+  }
+  .sidebar ul li{
+	list-style-type: none;
+	text-align: left;
+}
+.sidebar ul li a{
+	display: block;
+	color: whitesmoke;
+	text-decoration: none;
+	font-size: 22px;
+  }
+
+  .sidebar ul li .icon{
+    padding:2px;
+    text-align: center;
+}
+.sidebar ul li a .name{
+    padding:0 5px;
+}
   

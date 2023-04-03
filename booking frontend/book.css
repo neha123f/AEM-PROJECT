@@ -6,42 +6,12 @@ body{
     scroll-behavior: smooth;
 }
 /*Header CSS*/
-.header-container{
-  background-color: black;
-  width:100%;
-  height:auto;
-  color:whitesmoke;
-  padding-top:10px;
-  padding-left:10px;
-  padding-right:10px;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.2s;
-  border-bottom: 1px solid whitesmoke;
+header{
   z-index:1000;
 }
-#categories-list{
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:25px;
-  font-size: 20px;
-}
-#categories-list li:hover{
-  opacity:0.8;
-}
-.header-container ul li a{
-  text-decoration: none;
-  color: whitesmoke;
-}
-.header-container h3 a{
-  text-decoration: none;
-  color: whitesmoke;
-}
-.header-container h3 a:hover{
-  opacity:0.8;
+.offcanvas-body a{
+  color:whitesmoke;
+  font-size: 18px;
 }
 .lineUp {
   animation: 2s anim-lineUp ease-out 1;
@@ -161,9 +131,11 @@ input:hover{
     padding: 10px;
     flex-grow: 1;
     display: flex;
+    margin-top: 100px;
   }
   .book-image-container{
     width:50%;
+    
   }
   .book-image-container img{
     height:100%;
@@ -176,6 +148,7 @@ input:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
   }
   .book-details button{
     text-align: center;
@@ -233,5 +206,6 @@ input:hover{
     }
     .book-content{
       width:100%;
+      
     }
   }

@@ -1,24 +1,34 @@
 *{
-    padding:0;
-    margin:0;
+    padding: 0px;
+    margin:0px;
 }
-body{
-    width:100%;
-}
-.container{
+
+.admin-container{
     display:flex;
+    /* width:100%; */
 }
 .navigation{
-    width:300px;
+    width:180px;
     height:100vh;
     background-color: rgba(0, 0, 0, 0.733);      
     transition:0.3s;
 }
+.navigation.active{
+	width: 60px;
+	overflow: hidden;
+  }
+  .navigation.active .company img{
+    text-align: center;
+  }
+  .navigation.active .company a .company-name{
+	display: none;
+  }
 .company{
     padding: 10px;
 }
 .company a{
     text-decoration: none;
+    white-space: nowrap;
 }
 .company .logo{
     width:30px;
@@ -26,28 +36,28 @@ body{
 }
 .company-name{
     font-size: 30px;
+    padding: 10px;
     color: whitesmoke;
+}
+.navigation ul{
+    padding: 0;
 }
 
 .navigation ul li{
-    font-size: 20px;
-    /* margin:20px; */
-    /* width: 100%;   */
-    list-style-type: none;
-    
-    padding: 10px 5px;
+    font-size: 22px;
+    list-style-type: none;   
+    padding: 5px 5px;
 }
 .navigation ul li a:hover{
     opacity:0.5;
-    /* color:rgb(158, 81, 81); */
     background-color: white;
-    /* border-radius: 10%; */
 }
 .navigation ul li a{
     display: block;
     text-decoration: none;
     color: black;
     padding: 10px;
+    white-space: nowrap;
 }
 .navigation ul li .icon{
     padding:2px;
@@ -56,15 +66,20 @@ body{
 .navigation ul li a .name{
     padding:0 5px;
 }
-.active{
+.navigation.active  .name{
+    display:none;
+    padding:0 5px;
+}
+.active-tab{
     background-color: white;
-    /* border-radius: 10%; */
     transition-property:background-color;
     transition: 0.5s;
 }
 .main{
-    width:100%;
-    z-index: 1;
+    width: calc(100% - 180px)
+}
+.main.active{
+    width: calc(100% - 60px);
 }
 .main header{  
     /* border:1px solid red; */
@@ -73,18 +88,19 @@ body{
     justify-content: space-between;
     border-bottom: 1px solid black;
 }
-.main header p{
-    padding:10px;
-    font-size: 20px;
+.main header button{
+    margin:2px;
 }
-.info{
-    /* border:1px solid red; */
-    margin:10px;
+.admin-main{
+   padding: 5px;
+}
+#sideBar-btn{
+    font-size: 30px;
+}
+.info{  
     display:flex;
     justify-content: space-around;
     align-items: center;
-    gap: 20px;
-
 }
 .info .total{
     background-color:rgba(197, 197, 169, 0.5);
@@ -96,6 +112,7 @@ body{
     align-items: center;
     font-size: 30px;
     padding: 10px;
+    margin:50px;
 }
 .info .total:hover{
     background-color: rgb(196, 196, 196);
@@ -103,13 +120,51 @@ body{
 .info .total .food-icon{
     font-size: 70px;
 }
-table {
-    /* border:1px solid red; */
-    margin:30px;
-    width:100%;
-    font-size: 20px;
+.table-container{
+    margin:10px;
 }
-td{
-    /* border:1px solid red; */
-    text-align: center;
+h3{
+    margin: 10px;
+}
+
+/* .user-form{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:500px;
+    height:auto;
+    border:1px solid black;
+    border-radius: 2px;
+    padding:10px;
+} */
+form{
+    width:100%;
+    padding:10px;
+}
+h2{
+    padding:10px;
+}
+
+
+@media screen and (max-width:500px){
+    .navigation{
+        display:none;       
+    }
+    .navigation.active{
+        width:180px;      
+        display:block; 
+    }
+    .main{
+        width:100%;
+    }
+    
+    .info{
+        flex-direction: column;
+    }
+    .info .total{
+        width:85%;
+        margin:10px;
+    }
+    
 }
