@@ -9,70 +9,49 @@
     <link rel="stylesheet" href="floormap.css">
 </head>
 <body>
-    
-    <header class="header-container">
-        <h3 class="lineUp"><a href="homepage.html">Valtech_</a></h3>
-        <div class="categories">
-            <ul id="categories-list">
-                <li><a href="homepage.html">Home</a></li>
-                <li><a class="btn btn-secondary" href="book.html">Book seat</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="login.html">Logout</a></li>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <h3><a class="navbar-brand lineUp" href="homepage.html">Valtech_</a></h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="homepage.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-secondary" href="book.html">Book Seat</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="profile.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Logout</a>
+              </li>
             </ul>
+          </div>
         </div>
-      </header>
+      </div>
+    </nav>
+  </header>
 
       <main class="floor-container">
         <div class="button-container">
           <button class="btn btn-secondary">Floor : Ground Floor</button>
           <button class="btn btn-secondary">Seat : G70</button>
         </div>
-        <!-- <div class="map-design">
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-          <div class="seat-container">
-            <input class="seat-status" type="checkbox">
-            <div class="seat"></div>
-          </div>
-        </div> -->
         <div class="map-design">
           <form action="book_success.html">
-          <ul>
-            <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="1">
-                <label for="seat">
-                <div class="seat">1</div>
-                </label>
-              </div>
-            </li>
-            <li>
+          <ul id="seat-design">
+            
+            <!-- <li>
               <div class="seat-container">
                 <input name="seat" id="seat" type="radio" class="input-hidden" value="2">
                 <label for="seat">
@@ -95,9 +74,9 @@
                 <div class="seat">4</div>
                 </label>
               </div>
-            </li>
+            </li> -->
           </ul>
-          <ul>
+          <!-- <ul>
             <li>
               <div class="seat-container">
                 <input name="seat" id="seat" type="radio" class="input-hidden" value="5">
@@ -130,7 +109,7 @@
                 </label>
               </div>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <div class="submit-button">
           <button id="book-btn" class="btn btn-secondary">Book Seat</button>
@@ -162,5 +141,22 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+        let ul=document.getElementById("seat-design")
+        let newLi=document.createElement("li")
+        for(let i=1;i<20;i++){
+          ul.appendChild(newLi);
+            // <li>
+            //   <div class="seat-container">
+            //     <input name="seat" id="seat" type="radio" class="input-hidden" />
+            //     <label for="seat">
+            //     <div class="seat">1</div>
+            //     </label>
+            //   </div>
+            // </li>
+          //)
+          
+        }
+      </script>
 </body>
 </html>
