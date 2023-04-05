@@ -56,8 +56,28 @@
                 <div class="admin-main">
                     <span id="sideBar-btn"><ion-icon name="menu"></ion-icon> <span class="dash-name">Reports</span></span>  
                 </div>
-                <!-- <a href="#add-user"><button class="btn btn-secondary">Add user</button></a> -->
             </header>
+            <form onsubmit="return false;" action="adminreport.html">
+                <div class="form-floating mb-3">
+                  <select class="form-select" name="type" id="type" required onchange="getTypeOfRequest()">
+                    <option selected></option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="individual">Individual Reports</option>
+                  </select>
+                  <label for="type">Select type of requests</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="date" class="form-control" name="from" id="from" required onchange="getFromDate()">
+                  <label for="from">From Date</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="date" class="form-control" name="to" id="to" required readonly>
+                  <label for="to">To Date</label>
+                </div>
+                
+                <button class="btn btn-secondary">Next</button>
+            </form>
         </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -70,6 +90,49 @@
 			sideBar.classList.toggle("active");
             main.classList.toggle("active");
 		}
+
+
+        var today=new Date();
+        var formattedDate = today.toISOString().substr(0, 10);
+
+        var from=document.getElementById("from")
+        var to=document.getElementById("to")
+       
+        
+        from.setAttribute("min",formattedDate);
+        to.setAttribute("min",formattedDate);
+       
+        function getTypeOfRequest(){
+          var type=document.getElementById("type").value;
+          if(type=="daily"){
+            var to=document.getElementById("to");
+            to.setAttribute("readonly",true);
+          }
+          if(type=="weekly"){
+            var to=document.getElementById("to");
+            to.setAttribute("readonly",false);
+          }
+        }
+        function getFromDate(){
+          var type=document.getElementById("type").value;
+          var from=document.getElementById("from").value;
+          if(type=="daily"){
+            var to=document.getElementById("to");
+            to.setAttribute("readonly",true);
+            to.value=from;
+            console.log(to.value);
+          }
+          if(type=="weekly"){
+            var to=document.getElementById("to");
+            to.setAttribute("readonly",false);
+            const selectedDate=new Date(from);
+            selectedDate.setDate(selectedDate.getDate()+7);
+            const newDate=selectedDate.toISOString().substr(0,10);
+            to.value=newDate;
+            const toDate=document.getElementById("to")
+            toDate.setAttribute("max",newDate);
+          }
+        }
 	</script>
 </body>
 </html>

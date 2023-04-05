@@ -97,12 +97,19 @@ header{
     margin:10px;
     white-space: nowrap;
   }
-  .map-design form{
-    border: 1px solid red;
+  .map-design{
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
+    width:100%;
+  }
+  .map-design form{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    width:600px;
     height:auto;
     margin:10px;
   }
@@ -113,63 +120,87 @@ header{
     margin:10px;
   }
   #book-btn{
-    /* width:100%; */
     margin-top:10px;
     
   }
-  .seat-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    margin:10px;
-    flex-wrap: wrap;
-  }
-  .seat-status{
-    height:50px;
-    width:20px;
-  }
-  .seat{
-    background-color: aqua;
-    width:100px;
-    height:50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  /* .map-design{
-    margin-top: 50px;
-  } */
-  .map-design ul{
-    list-style-type: none;
-  }
 
-  /* input[type="radio"]{
-    display:none;
-}*/
-
-input[type="radio"] 
-{
-    background-color: #999;
-    background-image: url('img/lock.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
-    display:inline-block;
-    padding: 0 0 0 0px;
-    z-index: 4;
-}
-
-
-input[type="radio"]:checked
-{
-    background: #11810d;
+  .seat-container {
     width: 100px;
-    height: 50px;
-    display:inline-block;
-    padding: 0 0 0 0px;
-}
+    height:150px;
+    position: relative;
+    display: inline-block;
+    margin:20px;
+  }
+  
+  .seat-container img {
+    display: block;
+    width: 100px;
+  }
+  
+  .seat-container input[type="radio"] {
+    width:20px;
+    height:20px;
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    transform: translate(-50%, -50%);
+  }
+  .seat-container h6{
+    margin-left: 50px;
+  }
+
+  input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: green;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    display: grid;
+    place-content: center;
+  }
+
+  input[type="radio"][disabled]{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: red;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    display: grid;
+    place-content: center;
+  }
+
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em ;
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+  .booked{
+    background-color: brown;
+  }
+  
+ 
+  
+ 
+
+ 
+
 
 @media screen and (min-width:300px) {
   .header-container{

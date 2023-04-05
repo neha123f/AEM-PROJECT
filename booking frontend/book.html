@@ -64,7 +64,7 @@
                 <label for="from">From Date</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="date" class="form-control" name="to" id="to" required min="31-03-2023" max="07-04-2023">
+                <input type="date" class="form-control" name="to" id="to" required >
                 <label for="to">To Date</label>
               </div>
               <div class="form-floating mb-3">
@@ -86,22 +86,51 @@
                 <label for="food">Opting for lunch?</label>
               </div>
               <div class="form-floating mb-3">
-                <select class="form-select" name="floor" id="floor" required>
+                <select class="form-select" name="floor" id="floor" required >
                   <option selected></option>
-                  <option value="GF">Ground Floor</option>
-                  <option value="MF">Mezz Floor</option>
-                  <option value="FF">First Floor</option>
-                  <option value="SF">Second Floor</option>
-                  <option value="TF">Third Floor</option>
-                  <option value="TR">Training Room</option>
+                  <option value="Ground Floor">Ground Floor</option>
+                  <option value="Mezanine Floor">Mezz Floor</option>
+                  <option value="First Floor">First Floor</option>
+                  <option value="Second Floor">Second Floor</option>
+                  <option value="Third Floor">Third Floor</option>
+                  <option value="Training Room">Training Room</option>
                 </select>
                 <label for="floor">Select Floor</label>
               </div>
+              <!-- <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="seatnumber" id="seatnumber" required readonly>
+                <label for="seatnumber">Seat Booked</label>
+              </div> -->
               <button class="btn btn-secondary">Next</button>
           </form>
           </div>
         </div>
       </main>
+
+      <!-- <section id="floor-design" style="display: none;">
+        <img src="img/profile-image.png" alt="">
+        <form onsubmit="return false;">
+          <ul id="seat-design">           
+            <li>
+              <div class="seat-container">
+                <input name="seat" id="seat" type="radio" class="input-hidden" value="1" >
+                <label for="seat">
+                <div class="seat">1</div>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="seat-container">
+                <input name="seat" id="seat" type="radio" class="input-hidden" value="2" >
+                <label for="seat">
+                <div class="seat">2</div>
+                </label>
+              </div>
+            </li>
+          </ul>
+          <button onclick="getSeatNumber()">Confirm Seat</button>
+        </form>
+      </section> -->
 
       <footer class="footer-container">
         <!-- <img src="img/certified.PNG" alt="certified" width="250" height="50"> -->
@@ -142,11 +171,11 @@
           var type=document.getElementById("type").value;
           if(type=="daily"){
             var to=document.getElementById("to");
-            to.setAttribute("disabled",true);
+            to.setAttribute("readonly",true);
           }
           if(type=="weekly"){
             var to=document.getElementById("to");
-            to.setAttribute("disabled",false);
+            to.setAttribute("readonly",false);
           }
         }
         function getFromDate(){
@@ -154,13 +183,13 @@
           var from=document.getElementById("from").value;
           if(type=="daily"){
             var to=document.getElementById("to");
-            to.setAttribute("disabled",true);
+            to.setAttribute("readonly",true);
             to.value=from;
             console.log(to.value);
           }
           if(type=="weekly"){
             var to=document.getElementById("to");
-            to.setAttribute("disabled",false);
+            to.setAttribute("readonly",false);
             const selectedDate=new Date(from);
             selectedDate.setDate(selectedDate.getDate()+7);
             const newDate=selectedDate.toISOString().substr(0,10);
@@ -169,6 +198,23 @@
             toDate.setAttribute("max",newDate);
           }
         }
+
+        document.getElementById("floor").addEventListener("input", function() {
+          document.getElementById("floor-design").style.display = "block";
+        });
+        function getSeatNumber() {
+          var seatNumber=document.getElementById("seatnumber")
+          var radioButtons = document.getElementsByName("seat");
+          for (var i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) { 
+              var selectedValue = radioButtons[i].value;
+              console.log("Selected value: " + selectedValue);
+              seatNumber.value=selectedValue;
+              break;
+            }
+          }
+        }
+
       </script>
 </body>
 </html>

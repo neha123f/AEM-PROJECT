@@ -44,73 +44,12 @@
 
       <main class="floor-container">
         <div class="button-container">
-          <button class="btn btn-secondary">Floor : Ground Floor</button>
-          <button class="btn btn-secondary">Seat : G70</button>
+          <button id="btn1" class="btn btn-secondary">Floor : </button>
+          <button id="btn2" class="btn btn-secondary">Seat : </button>
         </div>
         <div class="map-design">
-          <form action="book_success.html">
-          <ul id="seat-design">
-            
-            <!-- <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="2">
-                <label for="seat">
-                <div class="seat">2</div>
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="3">
-                <label for="seat">
-                <div class="seat">3</div>
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="4">
-                <label for="seat">
-                <div class="seat">4</div>
-                </label>
-              </div>
-            </li> -->
-          </ul>
-          <!-- <ul>
-            <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="5">
-                <label for="seat">
-                <div class="seat">5</div>
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="6">
-                <label for="seat">
-                <div class="seat">6</div>
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="7">
-                <label for="seat">
-                <div class="seat">7</div>
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="seat-container">
-                <input name="seat" id="seat" type="radio" class="input-hidden" value="8">
-                <label for="seat">
-                <div class="seat">8</div>
-                </label>
-              </div>
-            </li>
-          </ul> -->
-        </div>
+          <form id="form-container" action="book_success.html">        
+
         <div class="submit-button">
           <button id="book-btn" class="btn btn-secondary">Book Seat</button>
         </div>
@@ -142,21 +81,60 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
       <script>
-        let ul=document.getElementById("seat-design")
-        let newLi=document.createElement("li")
-        for(let i=1;i<20;i++){
-          ul.appendChild(newLi);
-            // <li>
-            //   <div class="seat-container">
-            //     <input name="seat" id="seat" type="radio" class="input-hidden" />
-            //     <label for="seat">
-            //     <div class="seat">1</div>
-            //     </label>
-            //   </div>
-            // </li>
-          //)
-          
+        function generateSeatContainers(){
+        for (let i = 1; i <= 20; i++) {
+            const seatContainer = document.createElement('div');
+            seatContainer.classList.add('seat-container');
+            
+            const seatImage = document.createElement('img');
+            seatImage.src = 'img/seat.png';
+            seatImage.alt = 'Image';
+            
+            const label = document.createElement('label');
+            
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'seat';
+            input.value = `${i}`;
+
+            input.addEventListener('click', function() {
+              console.log("clicked");
+              console.log(input.value)
+              let button2=document.getElementById("btn2");
+
+              button2.textContent="Seat : "+input.value;
+            });
+
+            if (i === 2) {
+              // input.checked = true;
+              input.disabled = true;
+            }
+            
+            
+            const h6 = document.createElement('h6');
+            h6.textContent = i;
+            
+            label.appendChild(input);
+            label.appendChild(h6);
+            
+            seatContainer.appendChild(seatImage);
+            seatContainer.appendChild(label);
+            
+           
+            document.getElementById("form-container").appendChild(seatContainer);
+          }
         }
+        window.onload=generateSeatContainers;
+
+        const myUrl = new URL(window.location.toLocaleString());
+        const floor=myUrl.searchParams.get('floor');
+        console.log(myUrl.searchParams.get('floor'));
+
+        let button1=document.getElementById("btn1");
+        
+        button1.textContent+=floor;
+        button2.textContent+=seatNum;
+
       </script>
 </body>
 </html>
