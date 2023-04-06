@@ -194,15 +194,8 @@ header{
   .booked{
     background-color: brown;
   }
-  
- 
-  
- 
 
- 
-
-
-@media screen and (min-width:300px) {
+@media screen and (min-width:280px) {
   .header-container{
     flex-direction: column;
   }

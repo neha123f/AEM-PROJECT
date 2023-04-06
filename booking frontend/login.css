@@ -10,7 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:80px auto;
+    /* margin:80px auto; */
 }
 form{
     height: auto;
@@ -21,6 +21,7 @@ form{
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
+    margin-top: 80px;
     
 }
 form *{
