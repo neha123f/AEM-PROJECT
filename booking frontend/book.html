@@ -64,7 +64,7 @@
                 <label for="from">From Date</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="date" class="form-control" name="to" id="to" required >
+                <input type="date" class="form-control" name="to" id="to" required readonly>
                 <label for="to">To Date</label>
               </div>
               <div class="form-floating mb-3">
@@ -183,19 +183,15 @@
           var from=document.getElementById("from").value;
           if(type=="daily"){
             var to=document.getElementById("to");
-            to.setAttribute("readonly",true);
             to.value=from;
             console.log(to.value);
           }
           if(type=="weekly"){
             var to=document.getElementById("to");
-            to.setAttribute("readonly",false);
             const selectedDate=new Date(from);
             selectedDate.setDate(selectedDate.getDate()+7);
             const newDate=selectedDate.toISOString().substr(0,10);
             to.value=newDate;
-            const toDate=document.getElementById("to")
-            toDate.setAttribute("max",newDate);
           }
         }
 

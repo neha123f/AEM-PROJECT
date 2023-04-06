@@ -78,6 +78,38 @@
                 
                 <button class="btn btn-secondary">Next</button>
             </form>
+            <h3>Records</h3>
+            <div class="table-container table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Employee ID</th>
+                          <th scope="col">Employee Name</th>
+                          <th scope="col">Request Type</th>
+                          <th scope="col">From Date</th>
+                          <th scope="col">To Date</th>
+                          <th scope="col">Shift Timing</th>
+                          <th scope="col">Booked Seat</th>
+                          <th scope="col">Food Opted</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>@mdo</td>
+                          <td>@mdo</td>
+                          <td>@mdo</td>
+                          <td>@mdo</td>
+                          <td>@mdo</td>
+                        </tr>
+                      </tbody>
+                  </table>
+                </div>
         </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -129,8 +161,6 @@
             selectedDate.setDate(selectedDate.getDate()+7);
             const newDate=selectedDate.toISOString().substr(0,10);
             to.value=newDate;
-            const toDate=document.getElementById("to")
-            toDate.setAttribute("max",newDate);
           }
         }
 	</script>
