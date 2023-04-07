@@ -5,17 +5,20 @@
 
 .admin-container{
     display:flex;
-    /* width:100%; */
+    height:100vh;
+    flex-grow: 1;
 }
 .navigation{
     width:180px;
-    height:100vh;
+    /* height:100vh; */
     background-color: rgba(0, 0, 0, 0.733);      
     transition:0.3s;
+    /* flex-grow: 1; */
 }
 .navigation.active{
 	width: 60px;
 	overflow: hidden;
+    /* flex-grow: 1; */
   }
   .navigation.active .company img{
     text-align: center;
@@ -76,10 +79,12 @@
     transition: 0.5s;
 }
 .main{
-    width: calc(100% - 180px)
+    width: calc(100% - 180px);
+    /* flex-grow: 1; */
 }
 .main.active{
     width: calc(100% - 60px);
+    /* flex-grow: 1; */
 }
 .main header{  
     /* border:1px solid red; */
@@ -127,23 +132,19 @@ h3{
     margin: 10px;
 }
 
-/* .user-form{
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:500px;
-    height:auto;
-    border:1px solid black;
-    border-radius: 2px;
+.user-form {
+    width:100%;
     padding:10px;
-} */
+}
 form{
     width:100%;
     padding:10px;
 }
 h2{
     padding:10px;
+}
+#date-fields{
+    display: none;
 }
 
 

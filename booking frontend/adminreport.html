@@ -57,16 +57,17 @@
                     <span id="sideBar-btn"><ion-icon name="menu"></ion-icon> <span class="dash-name">Reports</span></span>  
                 </div>
             </header>
-            <form onsubmit="return false;" action="adminreport.html">
+            <form id="report-form" onsubmit="return false;" action="adminreport.html">
                 <div class="form-floating mb-3">
                   <select class="form-select" name="type" id="type" required onchange="getTypeOfRequest()">
-                    <option selected></option>
+                    
                     <option value="weekly">Weekly</option>
                     <option value="monthly">Monthly</option>
-                    <option value="individual">Individual Reports</option>
+                    <option value="individual" selected>Individual Reports</option>
                   </select>
                   <label for="type">Select type of requests</label>
                 </div>
+                <div id="date-fields">
                 <div class="form-floating mb-3">
                   <input type="date" class="form-control" name="from" id="from" required onchange="getFromDate()">
                   <label for="from">From Date</label>
@@ -75,6 +76,14 @@
                   <input type="date" class="form-control" name="to" id="to" required readonly>
                   <label for="to">To Date</label>
                 </div>
+              </div>
+
+              <div id="text-field">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" name="empId" id="empId" required >
+                  <label for="empId">Enter Employee ID</label>
+                </div>
+              </div>
                 
                 <button class="btn btn-secondary">Next</button>
             </form>
@@ -162,7 +171,30 @@
             const newDate=selectedDate.toISOString().substr(0,10);
             to.value=newDate;
           }
+          if(type=="monthly"){
+            var to=document.getElementById("to");
+            to.setAttribute("readonly",false);
+            const selectedDate=new Date(from);
+            selectedDate.setDate(selectedDate.getDate()+30);
+            const newDate=selectedDate.toISOString().substr(0,10);
+            to.value=newDate;
+          }
         }
+
+          const reportType = document.querySelector('#type');
+          const dateFields = document.querySelector('#date-fields');
+          const textField = document.querySelector('#text-field');
+
+          reportType.addEventListener('change', function() {
+            if (reportType.value == 'weekly' || reportType.value=='monthly') {
+              dateFields.style.display = 'block';
+              textField.style.display = 'none';
+            } else if (reportType.value == 'individual') {
+              dateFields.style.display = 'none';
+              textField.style.display = 'block';
+            }
+          });
+
 	</script>
 </body>
 </html>
